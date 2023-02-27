@@ -8,4 +8,4 @@ contributions:
   readers:
     - command: napari-tomocube-data-viewer.get_reader
       accepts_directories: false
-      filename_patterns: ['*.npy']
+      filename_patterns: ['*.TCF']

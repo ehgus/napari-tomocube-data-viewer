@@ -6,7 +6,7 @@ implement multiple readers or even other plugin contributions. see:
 https://napari.org/stable/plugins/guides.html?#readers
 """
 import numpy as np
-
+from TCFile import TCFile
 
 def napari_get_reader(path):
     """A basic implementation of a Reader contribution.
@@ -29,7 +29,7 @@ def napari_get_reader(path):
         path = path[0]
 
     # if we know we cannot read the file, we immediately return None.
-    if not path.endswith(".npy"):
+    if not path.endswith(".TCF"):
         return None
 
     # otherwise we return the *function* that can read ``path``.
@@ -59,14 +59,16 @@ def reader_function(path):
         default to layer_type=="image" if not provided
     """
     # handle both a string and a list of strings
-    paths = [path] if isinstance(path, str) else path
+    path = path if isinstance(path, str) else path[0]
     # load all files into array
-    arrays = [np.load(_path) for _path in paths]
+    tcfile = TCFile(path,'3D')
+    arrays = [tcfile[i] for i in range(len(tcfile))]
     # stack arrays into single array
     data = np.squeeze(np.stack(arrays))
 
     # optional kwargs for the corresponding viewer.add_* method
-    add_kwargs = {}
+    add_kwargs = {"name":"refractive index",
+                  "contrast_limits":[1.337, np.max(data)]}
 
     layer_type = "image"  # optional, default is "image"
     return [(data, add_kwargs, layer_type)]
