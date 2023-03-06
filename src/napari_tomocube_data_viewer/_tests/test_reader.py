@@ -1,5 +1,5 @@
 import numpy as np
-
+import h5py
 from napari_tomocube_data_viewer import napari_get_reader
 
 
@@ -9,8 +9,16 @@ def test_reader(tmp_path):
 
     # write some fake data using your supported file format
     my_test_file = str(tmp_path / "myfile.TCF")
-    original_data = np.random.rand(20, 20)
-    np.save(my_test_file, original_data)
+    original_data = np.random.rand(20, 20, 20)
+    with h5py.File(my_test_file,'w') as f:
+        f.create_group("Data/3D")
+        grp = f["Data/3D"]
+        grp.attrs["DataCount"] = np.array([1],np.int64)
+        grp.attrs["TimeInterval"] = np.array([1],np.int64)
+        for axis in ("X","Y","Z"):
+            grp.attrs[f"Size{axis}"] = np.array([20.])
+            grp.attrs[f"Resolution{axis}"] = np.array([1.])
+        grp["000000"] = original_data
 
     # try to read it back in
     reader = napari_get_reader(my_test_file)
