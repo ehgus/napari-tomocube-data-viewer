@@ -1,10 +1,7 @@
 # napari-tomocube-data-viewer
 
-[![License MIT](https://img.shields.io/pypi/l/napari-tomocube-data-viewer.svg?color=green)](https://github.com/ehgus/napari-tomocube-data-viewer/raw/main/LICENSE)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ehgus/napari-tomocube-data-viewer/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-tomocube-data-viewer.svg?color=green)](https://pypi.org/project/napari-tomocube-data-viewer)
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-tomocube-data-viewer.svg?color=green)](https://python.org)
-[![tests](https://github.com/ehgus/napari-tomocube-data-viewer/workflows/tests/badge.svg)](https://github.com/ehgus/napari-tomocube-data-viewer/actions)
-[![codecov](https://codecov.io/gh/ehgus/napari-tomocube-data-viewer/branch/main/graph/badge.svg)](https://codecov.io/gh/ehgus/napari-tomocube-data-viewer)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-tomocube-data-viewer)](https://napari-hub.org/plugins/napari-tomocube-data-viewer)
 
 A plugin to visualize three-dimensional data from Tomocube's microscopy
