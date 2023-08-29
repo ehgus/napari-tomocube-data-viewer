@@ -11,6 +11,7 @@ def test_reader(tmp_path):
     my_test_file = str(tmp_path / "myfile.TCF")
     original_data = np.random.rand(20, 20, 20)
     with h5py.File(my_test_file,'w') as f:
+        f.attrs['FormatVersion'] = np.array([b'1.2'], dtype='|S7')
         f.create_group("Data/3D")
         grp = f["Data/3D"]
         grp.attrs["DataCount"] = np.array([1],np.int64)
