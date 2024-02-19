@@ -20,12 +20,10 @@ https://napari.org/stable/plugins/index.html
 
 ## Installation
 
-You can install `napari-tomocube-data-viewer` via [pip]:
+You can install `napari-tomocube-data-viewer` via [pip] or [conda]:
 
     pip install napari-tomocube-data-viewer
-
-
-
+    conda install napari-tomocube-data-viewer
 
 ## Contributing
 
@@ -48,3 +46,5 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
+[conda]: https://docs.anaconda.com/free/miniconda/index.html
+[file an issue]: https://github.com/ehgus/napari-tomocube-data-viewer/issues
