@@ -68,7 +68,8 @@ def reader_function(path):
 
     # optional kwargs for the corresponding viewer.add_* method
     add_kwargs = {"name":"refractive index",
-                  "contrast_limits":[np.min(data), np.max(data)]}
+                  "contrast_limits":[np.min(data), np.max(data)],
+                  "scale":tcfile.data_resolution}
 
     layer_type = "image"  # optional, default is "image"
     return [(data, add_kwargs, layer_type)]
