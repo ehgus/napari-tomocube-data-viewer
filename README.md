@@ -2,6 +2,7 @@
 
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ehgus/napari-tomocube-data-viewer/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-tomocube-data-viewer.svg?color=green)](https://pypi.org/project/napari-tomocube-data-viewer)
+[![Python Version](https://img.shields.io/pypi/pyversions/napari-tomocube-data-viewer.svg?color=green)](https://python.org)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-tomocube-data-viewer)](https://napari-hub.org/plugins/napari-tomocube-data-viewer)
 
 A plugin to visualize three-dimensional data from [Tomocube](https://www.tomocube.com/)'s holotomography
@@ -24,6 +25,10 @@ You can install `napari-tomocube-data-viewer` via [pip] or [conda]:
 
     pip install napari-tomocube-data-viewer
     conda install napari-tomocube-data-viewer
+
+To install latest development version :
+
+    pip install git+https://github.com/ehgus/napari-tomocube-data-viewer.git
 
 ## Contributing
 
@@ -48,3 +53,4 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [pip]: https://pypi.org/project/pip/
 [conda]: https://docs.anaconda.com/free/miniconda/index.html
 [file an issue]: https://github.com/ehgus/napari-tomocube-data-viewer/issues
+[PyPI]: https://pypi.org/
