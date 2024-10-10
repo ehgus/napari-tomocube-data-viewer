@@ -1,12 +1,69 @@
+[project]
+name = "napari-tomocube-data-viewer"
+dynamic = ["version"]
+description = "A plugin to visualize three-dimensional data from Tomocube's microscopy"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Dohyeon Lee", email = "dleh428@kaist.ac.kr"},
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Framework :: napari",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "TCFile"
+]
+
+[project.optional-dependencies]
+testing = [
+    "tox",
+    "pytest",  # https://docs.pytest.org/en/latest/contents.html
+    "pytest-cov",  # https://pytest-cov.readthedocs.io/en/latest/
+]
+
+[project.entry-points."napari.manifest"]
+napari-tomocube-data-viewer = "napari_tomocube_data_viewer:napari.yaml"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/ehgus/napari-tomocube-data-viewer/issues"
+"Documentation" = "https://github.com/ehgus/napari-tomocube-data-viewer"
+"Source Code" = "https://github.com/ehgus/napari-tomocube-data-viewer"
+"User Support" = "https://github.com/ehgus/napari-tomocube-data-viewer/issues"
+
 [build-system]
 requires = ["setuptools>=42.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+include-package-data = true
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml"]
+
+[tool.setuptools.dynamic]
+version = {attr = "napari_tomocube_data_viewer.__init__.__version__"}
 
 [tool.black]
 line-length = 79
+target-version = ['py38', 'py39', 'py310']
 
 [tool.isort]
 profile = "black"
 line_length = 79
+
