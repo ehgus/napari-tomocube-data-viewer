@@ -62,14 +62,12 @@ def reader_function(path):
     path = path if isinstance(path, str) else path[0]
     # load all files into array
     tcfile = TCFile(path,'3D')
-    arrays = [tcfile[i] for i in range(len(tcfile))]
-    # stack arrays into single array
-    data = np.squeeze(np.stack(arrays))
-
+    data = tcfile.asdask()
     # optional kwargs for the corresponding viewer.add_* method
     add_kwargs = {"name":"refractive index",
-                  "contrast_limits":[np.min(data), np.max(data)],
-                  "scale":tcfile.data_resolution}
+                  "contrast_limits":[data.min().compute(), data.max().compute()],
+                  "scale":[max(1.0,tcfile.dt), *tcfile.data_resolution]
+                  }
 
     layer_type = "image"  # optional, default is "image"
     return [(data, add_kwargs, layer_type)]
