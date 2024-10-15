@@ -1,5 +1,6 @@
-import numpy as np
 import h5py
+import numpy as np
+
 from napari_tomocube_data_viewer import napari_get_reader
 
 
